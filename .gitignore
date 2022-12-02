@@ -11,3 +11,6 @@ vim/vim.symlink/spell/
 vim/vim.symlink/plugged/
 
 Brewfile.lock.json
+*.bak
+.DS_Store
+
