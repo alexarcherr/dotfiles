@@ -54,16 +54,16 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
 # git aliases
-alias gs='git s' mc_print_command_buffer () { printf "%s\\n" "$BUFFER" >&10;  }
- zle -N mc_print_command_buffer
-  bindkey '^[_' mc_print_command_buffer
-   mc_print_cursor_position () { echo $CURSOR >&10 }
-    zle -N mc_print_cursor_position
-     bindkey '^[+' mc_print_cursor_position
-      _mc_precmd(){ pwd>&8;kill -STOP $$  }; precmd_functions+=(_mc_precmd)
-      PS1='%n@%m:%~%# '
-      ']']'
-alias glog="git l"
+#alias gs='git s' mc_print_command_buffer () { printf "%s\\n" "$BUFFER" >&10;  }
+# zle -N mc_print_command_buffer
+#  bindkey '^[_' mc_print_command_buffer
+#   mc_print_cursor_position () { echo $CURSOR >&10 }
+#    zle -N mc_print_cursor_position
+#     bindkey '^[+' mc_print_cursor_position
+#      _mc_precmd(){ pwd>&8;kill -STOP $$  }; precmd_functions+=(_mc_precmd)
+#      PS1='%n@%m:%~%# '
+#      ']']'
+#alias glog="git l"
 
 # tmux aliases
 alias ta='tmux attach'
