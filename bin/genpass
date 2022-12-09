@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+export LC_CTYPE=C
+</dev/urandom tr -dc '12AaBbCcDdEeF345!@#mNnOoPpQqRrSsT$%qwertQWERTasdfgASDFGzxtUuVvWwXxYyZzcvbZXCVB67890fGgHhIiJjKkLlM' | head -c8; echo ""

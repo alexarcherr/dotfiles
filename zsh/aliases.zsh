@@ -7,8 +7,7 @@ alias rubyserve='ruby -run -e httpd . -p 8000'          # Or python -m SimpleHTT
 alias phpserve='php -S localhost:8000 -t .'             # Simple PHP development server 
 alias pyserve='python -m http.server --directory .'     # Simple Python develipment server
 
-# reload zsh config
-alias reload!='RELOAD=1 source ~/.zshrc'
+alias reload!='RELOAD=1 source ~/.zshrc'		# reload zsh config
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -74,3 +73,5 @@ alias tns='tmux new-session -s'
 alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 
 alias nr="npm run"
+
+alias cls='clear' 		# Good 'ol Clear Screen command
