@@ -1,8 +1,11 @@
 # Dotfiles
 
-Welcome to my digital world. This is a collection of neovim, tmux, and zsh configurations. Interested in a video walkthrough of the dotfiles? Check out my talk, [vim + tmux](https://www.youtube.com/watch?v=5r6yzFEXajQ).
+Welcome to my digital world. This is a collection of neovim, tmux, and zsh configurations. Interested in a video 
+walkthrough of the dotfiles? Check out my talk, [vim + tmux](https://www.youtube.com/watch?v=5r6yzFEXajQ).
 
-Obviously this setup works for me, a JavaScript developer on macOS, but this particular setup may not work for you. If this particular setup doesn't work for you, please steal ideas from this and if you like, contribute back tips, tricks, and other tidbits via Pull Requests if you like!
+Obviously this setup works for me, a JavaScript developer on macOS, but this particular setup may not work for you.
+If this particular setup doesn't work for you, please steal ideas from this and if you like, contribute back tips,
+tricks, and other tidbits via Pull Requests if you like!
 
 ![capture-20220105092039](https://user-images.githubusercontent.com/293805/148242417-07630ec0-4468-4be4-8644-de319a1b279a.png)
 
@@ -114,11 +117,25 @@ vim and neovim should just work once the correct plugins are installed. To insta
 
 ## Fonts
 
-I am currently using [Operator Mono](http://www.typography.com/fonts/operator/styles/operatormonoscreensmart) as my default font which is a paid font ($199 US) and does not include Powerline support. You do not need this font at all and there is nothing directly referencing it in the setup. For a great, free programming font, check out Mozilla's [Fira](http://mozilla.github.io/Fira/). In addition to this, I do have [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured to be used for non-ascii characters via iTerm2's profile settings. If you would prefer not to do this, then simply remove the `Plug 'ryanoasis/vim-devicons'` plugin from vim/nvim.
+I am currently using [free and opensource](https://www.jetbrains.com/lp/mono/) superior [JetBrains Mono Nerd](https://www.programmingfonts.org/#jetbrainsmono) as my default font.
+You do not need this font at all and there is nothing directly referencing it in the setup.
+For a great, free programming fonts, check out full [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+collection, which support non-ascii characters via iTerm2's profile settings.
+If you would prefer not to do this, then simply remove the `Plug 'ryanoasis/vim-devicons'` plugin from vim/nvim.
 
 ## Tmux Configuration
 
-Tmux is a terminal multiplexor which lets you create windows and splits in the terminal that you can attach and detach from. I use it to keep multiple projects open in separate windows and to create an IDE-like environment to work in where I can have my code open in vim/neovim and a shell open to run tests/scripts. Tmux is configured in [~/.tmux.conf](tmux/tmux.conf.symlink), and in [~/tmux/base16.sh](tmux/base16.sh), which defines the colors used, the layout of the tmux bar, and what what will be displayed, including the time and date, open windows, tmux session name, computer name, and current iTunes song playing. If not running on macOS, this configuration should be removed.
+Tmux is a terminal multiplexor (modern replacement of classic analog "screen") which lets you create windows and splits in
+the terminal that you can attach and detach from.
+I use it to keep multiple projects open in separate windows and to create an IDE-like environment to work in where I can have
+my code open in vim/neovim and a shell open to run tests/scripts. Tmux is configured in [~/.tmux.conf](tmux/tmux.conf.symlink),
+and in [~/tmux/base16.sh](tmux/base16.sh), which defines the colors used, the layout of the tmux bar, and what what will be
+displayed, including the time and date, open windows, tmux session name, computer name, and current iTunes song playing.
+
+<!-- TODO tmux theme -->
+<!-- TODO tmux able to get several sessions from ane connection and saves from unexpected disconnections. -->
+
+If not running on macOS, this configuration should be removed.
 
 ## Docker Setup
 
@@ -139,3 +156,7 @@ This will open a bash shell in the container which can then be used to manually 
 ## Questions
 
 If you have questions, notice issues,  or would like to see improvements, please open a new [discussion](https://github.com/nicknisi/dotfiles/discussions/new) and I'm happy to help you out!
+
+## Corrections
+
+Found errors? PR are welcome!
