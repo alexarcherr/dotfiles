@@ -1,13 +1,80 @@
 # Dotfiles
 
-Welcome to my digital world. This is a collection of neovim, tmux, and zsh configurations. Interested in a video 
-walkthrough of the dotfiles? Check out my talk, [vim + tmux](https://www.youtube.com/watch?v=5r6yzFEXajQ).
+Welcome to my digital world. This is a collection of neovim, tmux, zsh, git, homebrew configurations. 
 
-Obviously this setup works for me, a JavaScript developer on macOS, but this particular setup may not work for you.
-If this particular setup doesn't work for you, please steal ideas from this and if you like, contribute back tips,
-tricks, and other tidbits via Pull Requests if you like!
+<!-- Interested in a video 
+walkthrough of the dotfiles? Check out my talk, [vim + tmux](https://www.youtube.com/watch?v=5r6yzFEXajQ).-->
 
-![capture-20220105092039](https://user-images.githubusercontent.com/293805/148242417-07630ec0-4468-4be4-8644-de319a1b279a.png)
+Obviously this setup works for me, a JavaScript developer on macOS, but this particularly
+setup may not work for you. If this particular setup doesn't work for you, please steal 
+ideas from this and if you like, contribute back tips, tricks, and other tidbits 
+via Pull Requests if you like!
+
+I was a little tired of having long alias files and everything strewn about
+(which is extremely common on other dotfiles projects, too). That led to this
+project being much more topic-centric. I realized I could split a lot of things
+up into the main areas I used (Ruby, git, system libraries, and so on), so I
+structured the project accordingly.
+
+
+If you're interested in the philosophy behind why projects like these are
+awesome, you might want to [read my post on the
+subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+
+## topical
+
+Everything's built around topic areas. If you're adding a new area to your
+forked dotfiles — say, "Java" — you can simply add a `java` directory and put
+files in there. Anything with an extension of `.zsh` will get automatically
+included into your shell. Anything with an extension of `.symlink` will get
+symlinked without extension into `$HOME` when you run `script/bootstrap`.
+
+## what's inside
+
+A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
+above and see what components may mesh up with you.
+[Fork it](https://github.com/holman/dotfiles/fork), remove what you don't
+use, and build on what you do use.
+
+## components
+
+There's a few special files in the hierarchy.
+
+- **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
+  available everywhere.
+- **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
+  environment.
+- **topic/path.zsh**: Any file named `path.zsh` is loaded first and is
+  expected to setup `$PATH` or similar.
+- **topic/completion.zsh**: Any file named `completion.zsh` is loaded
+  last and is expected to setup autocomplete.
+- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.zsh`.
+- **topic/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
+  your `$HOME`. This is so you can keep all of those versioned in your dotfiles
+  but still keep those autoloaded files in your home directory. These get
+  symlinked in when you run `script/bootstrap`.
+
+## install
+
+Run this:
+
+```sh
+git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+script/bootstrap
+```
+
+This will symlink the appropriate files in `.dotfiles` to your home directory.
+Everything is configured and tweaked within `~/.dotfiles`.
+
+The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
+which sets up a few paths that'll be different on your particular machine.
+
+`dot` is a simple script that installs some dependencies, sets sane macOS
+defaults, and so on. Tweak this script, and occasionally run `dot` from
+time to time to keep your environment fresh and up-to-date. You can find
+this script in `bin/`.
+
 
 ## Initial Setup and Installation
 
@@ -16,7 +83,9 @@ First, you may want to backup any existing files that exist so this doesn't over
 
 Run `install/backup.sh` to backup all symlinked files to a `~/dotfiles-backup` directory.
 
-This will not delete any of these files, and the install scripts will not overwrite any existing. After the backup is complete, you can delete the files from your home directory to continue installation.
+This will not delete any of these files, and the install scripts will not overwrite any
+existing. After the backup is complete, you can delete the files from your home directory
+to continue installation.
 
 ### Installation
 
@@ -139,23 +208,37 @@ If not running on macOS, this configuration should be removed.
 
 ## Docker Setup
 
-A Dockerfile exists in the repository as a testing ground for linux support. To set up the image, make sure you have Docker installed and then run the following command.
+A Dockerfile exists in the repository as a testing ground for linux support. To set
+up the image, make sure you have Docker installed and then run the following command.
 
 ```bash
 docker build -t dotfiles --force-rm --build-arg PRIVATE_KEY="$(cat ~/.ssh/id_rsa)" --build-arg PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)" .
 ```
 
-This should create a `dotfiles` image which will set up the base environment with the dotfiles repo cloned. To run, execute the following command.
+This should create a `dotfiles` image which will set up the base environment with the
+dotfiles repo cloned. To run, execute the following command.
 
 ```bash
 docker run -it --rm dotfiles
 ```
 
-This will open a bash shell in the container which can then be used to manually test the dotfiles installation process with linux.
+This will open a bash shell in the container which can then be used to manually test
+the dotfiles installation process with linux.
 
-## Questions
+## bugs
 
-If you have questions, notice issues,  or would like to see improvements, please open a new [discussion](https://github.com/nicknisi/dotfiles/discussions/new) and I'm happy to help you out!
+I want this to work for everyone.
+
+If you're brand-new to the project and run into any blockers, please
+[open an issue](https://github.com/holman/dotfiles/issues) on this repository
+and I'd love to get it fixed for you!
+
+## thanks
+
+Initialy I forked [Nick Nisi's dotfiles](https://github.com/nicknisi/dotfiles),
+lately scramble it with [Zach Holman's dotfiles](https://github.com/holman/dotfiles)
+and my own settings. A decent amount of the code in my dotfiles stem or are inspired
+from that repos. Thank you, guys!
 
 ## Corrections
 
