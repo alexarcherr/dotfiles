@@ -1,4 +1,4 @@
 Brewfile.lock.json
 *.bak
 .DS_Store
-
+nvim/plugin
