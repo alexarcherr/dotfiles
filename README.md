@@ -33,7 +33,7 @@ symlinked without extension into `$HOME` when you run `script/bootstrap`.
 
 A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
 above and see what components may mesh up with you.
-[Fork it](https://github.com/holman/dotfiles/fork), remove what you don't
+[Fork it](https://github.com/alexarcherr/dotfiles/fork), remove what you don't
 use, and build on what you do use.
 
 ## components
@@ -59,7 +59,7 @@ There's a few special files in the hierarchy.
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/alexarcherr/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
@@ -206,31 +206,12 @@ displayed, including the time and date, open windows, tmux session name, compute
 
 If not running on macOS, this configuration should be removed.
 
-## Docker Setup
-
-A Dockerfile exists in the repository as a testing ground for linux support. To set
-up the image, make sure you have Docker installed and then run the following command.
-
-```bash
-docker build -t dotfiles --force-rm --build-arg PRIVATE_KEY="$(cat ~/.ssh/id_rsa)" --build-arg PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)" .
-```
-
-This should create a `dotfiles` image which will set up the base environment with the
-dotfiles repo cloned. To run, execute the following command.
-
-```bash
-docker run -it --rm dotfiles
-```
-
-This will open a bash shell in the container which can then be used to manually test
-the dotfiles installation process with linux.
-
 ## bugs
 
 I want this to work for everyone.
 
 If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/holman/dotfiles/issues) on this repository
+[open an issue](https://github.com/alexarcherr/dotfiles/issues) on this repository
 and I'd love to get it fixed for you!
 
 ## thanks
