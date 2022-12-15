@@ -50,6 +50,10 @@ $ZSH/homebrew/install.sh 2>&1
 echo "› brew update"
 brew update
 
+# Upgrade Oh-My-Zsh
+echo "> omz update"
+omz update
+
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install
