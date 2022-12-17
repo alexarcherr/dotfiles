@@ -86,3 +86,6 @@ vim.g.completion_matching_ignore_case = 1
 -- https://vi.stackexchange.com/questions/2299/how-to-translate-unicode-escape-sequences-to-the-unicode-character
 vim.cmd [[command -range Utf8FromBytes s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g]]
 
+-- font used for Neovide
+vim.opt.guifont = "JetBrainsMono_Nerd_Font:h12"
+
