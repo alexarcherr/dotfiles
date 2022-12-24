@@ -79,7 +79,7 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux brew zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git tmux brew taskwarrior zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

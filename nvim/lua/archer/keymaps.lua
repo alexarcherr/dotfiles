@@ -20,14 +20,13 @@ map('n', '<Tab>', ':BufferLineCycleNext<CR>', default_opts)
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', default_opts)
 
 -- telescope shortcuts
-local telescope = require('telescope.builtin')
---vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-map('n', '<leader>ff', ':Telescope find_files find_command=rg,--smart-case,--files<CR>', default_opts)
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
-vim.keymap.set('n', '<leader>fo', telescope.oldfiles, {})
-vim.keymap.set('n', '<F4>', telescope.oldfiles, {})-- search word under the cursor
+--local telescope = require('telescope.builtin')
+-- NOT WORK WITH ERROR "Expected lua string"  map('n', '<leader>ff', telescope.find_files({}), default_opts)
+map('n', '<leader>ff', ':Telescope find_files<CR>', default_opts)
+map('n', '<leader>fg', ':Telescope live_grep<CR>', default_opts)
+map('n', '<leader>fb', ':Telescope buffers<CR>', default_opts)
+map('n', '<leader>fh', ':Telescope help_tags<CR>', default_opts)
+map('n', '<leader>fo', ':Telescope oldfiles<CR>', default_opts)
 
 -- fn keys F1 .. F12
 -- По F1 очищаем последний поиск с подсветкой
@@ -53,6 +52,10 @@ map('i', '<CS-D>', '<C-R>=strftime(\'%Y-%m-%d %H:%M:%S\')<CR>', default_opts)
 -- test mac full F13-F19 keyboard
 map('i', '<F19>', '<C-R>=strftime(\'%Y-%m-%d %H:%M:%S\')<CR>', default_opts)
 
+
+-- https://vimways.org/2019/vim-and-the-working-directory/
+--'cd' towards the directory in which the current file is edited but only change the path for the current window
+map('n', '<leader>cd', ':lcd %:h<CR>', default_opts)
 
 --
 -- key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')

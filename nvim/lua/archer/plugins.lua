@@ -43,13 +43,17 @@ return require('packer').startup(function(use)
     use 'majutsushi/tagbar'
 
 
+use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
     -- Замена fzf и ack
     use { 'nvim-telescope/telescope.nvim',
-      requires = 'nvim-lua/plenary.nvim',
+      requires = { 
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope-fzf-native.nvim'
+      },
       config = function() require'telescope'.setup {} end 
     }
 
-    use 'nvim-telescope/telescope-fzf-native.nvim' 
 
     use { 'phaazon/hop.nvim',
       branch = 'v2', -- optional but strongly recommended
@@ -181,6 +185,24 @@ return require('packer').startup(function(use)
     use { 'renerocksai/telekasten.nvim',
       requires = { 'renerocksai/calendar-vim' }
     }
+
+    use {
+      'sudormrfbin/cheatsheet.nvim',
+      requires = {
+        {'nvim-telescope/telescope.nvim'},
+        {'nvim-lua/popup.nvim'},
+        {'nvim-lua/plenary.nvim'},
+      }
+    }
+
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
+      end
+    }
+
+    use 'alexarcherr/vim-tasks'
 
   end
 )

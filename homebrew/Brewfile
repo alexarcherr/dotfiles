@@ -51,3 +51,4 @@ brew "wget" # internet file retriever
 brew "z" # switch between most used directories
 brew "zsh" # zsh (latest)
 brew "p7zip" # 7zip archiver
+brew "dos2unix"

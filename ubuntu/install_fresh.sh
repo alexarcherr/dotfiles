@@ -7,9 +7,9 @@ apt-get install -y \
     mc locate \
     python3-dev python3-pip \
     nginx \
-    php-fpm \
+    php-fpm memcached php-mysql php-memcached php-mbstring \
     mysql-server sqlite3 \
-    zsh tmux wget curl git
+    zsh tmux wget curl git net-tools
 
 apt-get update && upt-get upgrade
 
