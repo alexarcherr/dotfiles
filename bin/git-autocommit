@@ -1,10 +1,11 @@
 #!/bin/sh
 
+set -e
+
 now=$(date +"%m.%d.%Y_%T")
 logfile="$1/git_autocommit.log"
+dir=$1
 
-for dir in $1/*/
-do
 echo -e '\n' >> $logfile
 echo "autocommit $dir $now" >> $logfile
 echo "--------------------------" >> $logfile
@@ -12,6 +13,5 @@ echo "--------------------------" >> $logfile
 cd $dir
 git add . >> $logfile
 git commit -am "autocommit $now" >> $logfile
-git push origin master >> $logfile
-done
+git push >> $logfile
 
