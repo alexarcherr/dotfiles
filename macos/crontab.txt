@@ -1,0 +1,24 @@
+# Crontab - regular processes for my workflow
+
+# Update crontab from this file:
+# cat crontab.txt | crontab -
+# or recommend using dos2unix to ensure no errant CRLF (^M) make it into the file:
+# dos2unix crontab.txt | crontab -
+
+# File format:
+# * * * * * * <command to be executed>
+# | | | | | | 
+# | | | | | +-- Year              (range: 1900-3000)
+# | | | | +---- Day of the Week   (range: 1-7, 1 standing for Monday)
+# | | | +------ Month of the Year (range: 1-12)
+# | | +-------- Day of the Month  (range: 1-31)
+# | +---------- Hour              (range: 0-23)
+# +------------ Minute            (range: 0-59)
+
+# File location:
+# Mac OS X                                /usr/lib/cron/tabs/
+# BSD Unix                                /var/cron/tabs/
+# Solaris, HP-UX, Debian, Ubuntu          /var/spool/cron/crontabs/
+# AIX, Red Hat Linux, CentOS, Ferdora     /var/spool/cron/
+
+
