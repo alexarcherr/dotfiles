@@ -106,7 +106,7 @@ use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAK
     use 'saadparwaiz1/cmp_luasnip'  -- Completion source for snippet autocomplete
 
     use { 'L3MON4D3/LuaSnip',       -- Snippet engine
-      tag = "v<CurrentMajor>.*",
+      tag = "v1.*",
       config = function() require("luasnip.loaders.from_snipmate").lazy_load() end,
     }
 
@@ -204,6 +204,9 @@ use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAK
 
     use 'alexarcherr/vim-tasks'
 
+    use { "iamcco/markdown-preview.nvim", 
+        run = "cd app && npm install", 
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, }
   end
 )
 

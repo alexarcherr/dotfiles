@@ -79,7 +79,7 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux brew taskwarrior zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git tmux brew taskwarrior zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -244,6 +244,8 @@ zfetch zsh-users/zsh-autosuggestions
 zfetch grigorii-zander/zsh-npm-scripts-autocomplete
 # zfetch chriskempson/base16-shell
 zfetch Aloxaf/fzf-tab
+zfetch MichaelAquilina/zsh-you-should-use
+
 
 if [[ -x "$(command -v fnm)" ]]; then
     eval "$(fnm env --use-on-cd)"

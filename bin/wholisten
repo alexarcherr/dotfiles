@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+# https://stackoverflow.com/questions/4421633/who-is-listening-on-a-given-tcp-port-on-mac-os-x
+# Then listening command gives you a listing of processes listening on some port and listening smth greps this for some pattern.
+# Having this, it's quite easy to ask about particular process, e.g. listening dropbox, or port, e.g. listening 22.
+# lsof command has some specialized options for asking about port, protocol, process etc. but personally I've found above function much more handy, since I don't need to remember all these low-level options. lsof is quite powerful tool, but unfortunately not so comfy to use.
+
+if [ $# -eq 0 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+elif [ $# -eq 1 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+else
+    echo "Usage: listening [pattern]"
+fi
+

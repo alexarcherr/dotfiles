@@ -45,10 +45,22 @@ brew "fnm" # Fast Node version manager
 brew "shellcheck" # diagnostics for shell sripts
 brew "tmux" # terminal multiplexer
 brew "tree" # pretty-print directory contents
-brew "vim" # Vim (latest)
 brew "wdiff" # word differences in text files
 brew "wget" # internet file retriever
 brew "z" # switch between most used directories
 brew "zsh" # zsh (latest)
 brew "p7zip" # 7zip archiver
 brew "dos2unix"
+brew "sponge" # Soak up standard input and write to a file
+brew "neovide" # UI client for eeovim
+brew "safe-rm" # rm with security
+brew "rclone"  # rsync for elounds
+brew "sshpass" # simple insert passwords for ssh
+brew "fac" # Easy-to-use CUI for fixing git conflicts
+brew "m-cli" # Swiss Army Knife for macOS
+brew "zoxide" # cd command that learns your habits
+brew "exa" # Replacement for ls written in Rust
+brew "wifi-password" # Get wifi pass
+brew "ack" # Grep-like text finder
+brew "youtube-dl" # YouTube downloader
+

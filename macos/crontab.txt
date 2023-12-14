@@ -21,4 +21,8 @@
 # Solaris, HP-UX, Debian, Ubuntu          /var/spool/cron/crontabs/
 # AIX, Red Hat Linux, CentOS, Ferdora     /var/spool/cron/
 
+1  9-18/1 * * * git-autocommit ~/.dotfiles >> /tmp/cron.out
+31 9-18/1 * * * git-autocommit ~/Documents/DigitalGarden >> /tmp/cron.out
+
+#
 

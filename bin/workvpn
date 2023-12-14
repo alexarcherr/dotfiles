@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+# Connect to Cisco AnyConnect with 2FA auth (secrets extracted from 1Password CLI)
+# Source: https://superuser.com/questions/649614/connect-using-anyconnect-from-command-line
+
+__quickvpn(){
+
+  if [[ ! -e /opt/cisco/anyconnect/bin/vpn ]]; then
+    echo "cisco vpn not found"
+  fi
+
+  local username=""
+  local url="vpn1.merlion.ru/gfactor"
+  local pass1=""
+  local pass2=""
+  local vpn_tool="/opt/cisco/anyconnect/bin/vpn"
+ 
+  if [[ $1 == "on" ]];then
+    username=$(op item get "Merlion VPN" --fields label=username)
+    pass1=$(op item get "Merlion VPN" --fields label=password)
+    pass2=$(op item get "Merlion VPN" --otp)
+    #echo "${username}\n${pass1}\n${pass2}\n" | $vpn_tool -s connect $url > /dev/null 2>&1
+    #echo "${username}\n${pass1}\n${pass2}\n"
+    echo "${username}\n${pass1}\n${pass2}\n" | $vpn_tool -s connect $url
+  elif [[ $1 == "off" ]]; then
+    $vpn_tool -s disconnect > /dev/null 2>&1
+  elif [[ $1 == "state" ]]; then
+    $vpn_tool -s state | sed 's/>>//' | sed -n 's/\(state:.*\).*/\1/p;/state/q'
+  else
+    echo "usage: on | off | state \n - on: connect\n - off: disconnect\n - state: connect status\n"
+  fi
+}
+
+__quickvpn "$1"
+

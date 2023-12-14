@@ -45,7 +45,8 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete" # This alias will find and delete all ".DS_Store" files in the current directory and all subdirectories.
+
 # remove broken symlinks
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
@@ -72,3 +73,22 @@ alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 alias nr="npm run"
 
 alias cls='clear' 		# Good 'ol Clear Screen command
+
+
+# safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='safe-rm -I'                    # 'rm -i' prompts for every file
+alias ln='ln -i'
+
+
+alias lr='ls -ltr' # This will show all files sorted by modification date, the most recent first.
+alias backup='tar -zcvf $(date +%Y%m%d).tar.gz *' # This creates a tarball of the current directory, compressed with gzip, with the filename in the format 'yyyymmdd.tar.gz'.
+alias path='echo -e ${PATH//:/\\n}' # This shows all directories in the PATH variable, one per line.
+alias du1='du -h -d 1' # This shows the size of the current directory and its subdirectories in human-readable format
+alias today='date +"%A, %B %d, %Y"' # This shows the current date in the format of "Day of the week, Month Day, Year"
+alias to='function _to() { cd "$@" && tree; }; _to' # This allows you to navigate to a directory and list the files in it with a single command and also show the directory tree
+
+# Mac-specific
+alias flushdns='function _flushdns() { sudo dscacheutil -flushcache; }; _flushdns' # This flushes the DNS cache
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'

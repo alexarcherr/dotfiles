@@ -1,6 +1,12 @@
-#!/bin/sh
+#!/bin/zsh
 
 set -e
+
+if [[ -z "$1" ]]
+then
+    echo "Usage: ${(%):-%x} path/to/dir"
+    exit 1
+fi
 
 now=$(date +"%m.%d.%Y_%T")
 logfile="$1/git_autocommit.log"
@@ -12,6 +18,6 @@ echo "--------------------------" >> $logfile
 
 cd $dir
 git add . >> $logfile
-git commit -am "autocommit $now" >> $logfile
-git push >> $logfile
+git commit -q -am "autocommit $now" >> $logfile
+git push -q >> $logfile
 

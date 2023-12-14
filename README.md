@@ -1,5 +1,17 @@
 # Dotfiles
 
+# Toolbox
+
+Gruvbox theme everywhere
+
+Oh my Zsh + plugins
+tmux + tpm (Tmux Plugin Manager)
+mc (Midnight Commander)
+LunarVim + Packer + bunch of plugins (worth separate README)
+
+
+
+
 Welcome to my digital world. This is a collection of neovim, tmux, zsh, git, homebrew configurations. 
 
 <!-- Interested in a video 
